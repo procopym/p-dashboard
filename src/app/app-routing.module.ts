@@ -7,8 +7,8 @@ import {AppComponent} from "./app.component";
 
 const routes: Routes = [
   {
-    path: '', component: AppComponent, children: [
-      { path: '', component: HomeComponent}
+    path: '', component: AppComponent, pathMatch: 'full', children: [
+      { path: '', component: HomeComponent, pathMatch: 'full'}
     ]
   },
   { path: 'error', component: ErrorPageComponent },
