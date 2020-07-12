@@ -1,0 +1,22 @@
+<div class="header">
+  <button
+    [routerLink]="['/diary','new-note']"
+    class="btn btn-link add"
+  >
+    Create note
+    <i class="fas fa-plus"></i>
+  </button>
+</div>
+
+<input
+  [(ngModel)]="searchNote"
+  (keydown.escape)="onEscape()"
+  placeholder="Search Note"
+  type="text"
+>
+
+<app-note
+  *ngFor="let note of notes | searchNotes: searchNote"
+  [note]="note"
+></app-note>
+

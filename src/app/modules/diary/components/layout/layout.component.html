@@ -1,0 +1,38 @@
+<nav class="navbar bg-dark">
+  <h1>
+    <a [routerLink]="['/diary', 'notes']">
+      Personal Diary
+    </a>
+  </h1>
+
+  <ul *ngIf="auth.isAuthenticated(); else loginBlock">
+    <li routerLinkActive="active">
+      <a [routerLink]="['/diary', 'notes']">
+        Notes
+      </a>
+    </li>
+    <li>
+      <a [routerLink]="['/diary', 'login']" (click)="auth.logout()">
+        Logout
+      </a>
+    </li>
+  </ul>
+
+  <ng-template #loginBlock>
+    <ul>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/diary', 'login']">
+            Sign in
+        </a>
+      </li>
+      <li routerLinkActive="active">
+        <a [routerLink]="['/diary', 'sign-up']" class="sign__up">
+            Sing up
+        </a>
+      </li>
+    </ul>
+  </ng-template>
+</nav>
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
