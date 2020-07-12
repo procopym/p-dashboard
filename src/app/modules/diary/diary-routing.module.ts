@@ -7,7 +7,7 @@ import {SignUpComponent} from "./pages/sign-up/sign-up.component";
 import {NotePreviewComponent} from "./pages/note-preview/note-preview.component";
 import {CreateNoteComponent} from "./pages/create-note/create-note.component";
 import {EditNoteComponent} from "./pages/edit-note/edit-note.component";
-import {AuthGuard} from "./services/auth.guard"
+import {AuthGuard} from "./shared/services/auth.guard"
 
 
 const routes: Routes = [

@@ -36,8 +36,12 @@ body {
   font-family: 'Pridi', serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
+  background-color: #eee;
   color: #333;
+
+  input {
+    background-color: var(--light);
+  }
 }
 
 a {
@@ -88,6 +92,7 @@ img {
 .card {
   border: #ccc 1px solid;
   margin: 0.7rem 0;
+  background-color: var(--light);
 
   &-header,
   &-content,

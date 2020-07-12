@@ -1,5 +1,5 @@
 import {Component} from "@angular/core";
-import {Note} from "../../interfaces";
+import {Note} from "../../shared/interfaces";
 
 @Component({
   selector: 'app-home',

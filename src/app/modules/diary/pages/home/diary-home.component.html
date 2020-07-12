@@ -8,15 +8,25 @@
   </button>
 </div>
 
-<input
-  [(ngModel)]="searchNote"
-  (keydown.escape)="onEscape()"
-  placeholder="Search Note"
-  type="text"
->
+<div *ngIf="notes.length; else noNotesBlock">
+  <input
+    [(ngModel)]="searchNote"
+    (keydown.escape)="onEscape()"
+    placeholder="Search Note"
+    type="text"
+  >
 
-<app-note
-  *ngFor="let note of notes | searchNotes: searchNote"
-  [note]="note"
-></app-note>
+  <app-note
+    *ngFor="let note of notes | searchNotes: searchNote"
+    [note]="note"
+  ></app-note>
+</div>
 
+<ng-template #noNotesBlock>
+  <div class="message">
+    No notes yet...
+  </div>
+  <div class="no-notes">
+    <div class="animation"></div>
+  </div>
+</ng-template>

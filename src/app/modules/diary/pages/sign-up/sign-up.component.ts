@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {AuthService} from "../../services/auth.service";
+import {AuthService} from "../../shared/services/auth.service";
 import {Router} from "@angular/router";
-import {FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators} from "@angular/forms";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {CustomValidators} from "../../shared/custom-validators";
 
 @Component({
   selector: 'app-sign-up',
@@ -44,32 +45,10 @@ export class SignUpComponent implements OnInit {
           Validators.required
         ])
       }, {
-        validators: this.MatchPasswords('password', 'confirmPassword', {passwordMismatch: true})
+        validators: CustomValidators.MatchField('password', 'confirmPassword', {passwordMismatch: true})
       })
     })
   }
-
-  MatchPasswords(password: string, confirmPassword: string, error: ValidationErrors): ValidatorFn {
-    return (formGroup: FormGroup) => {
-      const passwordControl = formGroup.controls[password];
-      const confirmPasswordControl = formGroup.controls[confirmPassword];
-
-      if (!passwordControl || !confirmPasswordControl) {
-        return null;
-      }
-
-      if (confirmPasswordControl.errors && !confirmPasswordControl.errors.passwordMismatch) {
-        return null;
-      }
-
-      if (passwordControl.value !== confirmPasswordControl.value) {
-        confirmPasswordControl.setErrors(error);
-      } else {
-        confirmPasswordControl.setErrors(null);
-      }
-    }
-  }
-
 
   submit() {
     if (!this.form.valid) {

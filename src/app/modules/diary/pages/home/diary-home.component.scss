@@ -3,3 +3,45 @@
   justify-content: center;
   padding: 1rem;
 }
+
+.no-notes,
+.message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  margin: 0 auto;
+}
+
+.no-notes {
+  height: 30vh;
+  width: 30vh;
+}
+
+.animation {
+  border: 1px solid transparent;
+  border-radius: 100%;
+  box-shadow: -50px 0 0 8px #3498db,
+  -25px 25px 0 8px #1abc9c,
+  0px 50px 0 8px #9b59b6,
+  25px 25px 0 8px #f1c40f,
+  50px 0 0 8px #e67e22,
+  25px -25px 0 8px #e74c3c,
+  0px -50px 0 8px #ecf0f1,
+  -25px -25px 0 8px #99a;
+  animation: rotate 0.8s ease-in-out infinite;
+}
+
+@keyframes rotate {
+  100% {
+    box-shadow: -25px 25px 0 8px #1abc9c,
+    0px 50px 0 8px #9b59b6,
+    25px 25px 0 8px #f1c40f,
+    50px 0 0 8px #e67e22,
+    25px -25px 0 8px #e74c3c,
+    0px -50px 0 8px #ecf0f1,
+    -25px -25px 0 8px #99a,
+    -50px 0 0 8px #3498db;
+  }
+}
+
