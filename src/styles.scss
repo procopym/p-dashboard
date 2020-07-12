@@ -86,7 +86,6 @@ img {
 }
 
 .card {
-  //padding: 1rem;
   border: #ccc 1px solid;
   margin: 0.7rem 0;
 
@@ -132,9 +131,9 @@ img {
 
   &:disabled {
     cursor: not-allowed;
-    background: var(--light-color);
+    background: var(--gray);
     color: #111;
-    opacity: 1;
+    opacity: 0.8;
   }
 }
 
@@ -146,6 +145,18 @@ img {
   background: none;
   padding: 0;
   margin: 0;
+
+  &.add {
+    color: var(--green);
+  }
+
+  &.remove {
+    color: var(--danger);
+  }
+
+  &.move {
+    color: var(--cyan);
+  }
 }
 
 .btn-block {
@@ -234,14 +245,14 @@ img {
   margin-bottom: .8rem;
 
   &.invalid {
-    color: var(--primary);
+    color: var(--danger);
     input {
-      border-color: var(--primary);
+      border-color: var(--danger);
     }
   }
 
   .validation {
-    color: var(--primary);
+    color: var(--dangery);
   }
 }
 
@@ -298,7 +309,7 @@ table th {
   }
 
   li.active a {
-    color: var(--dark);
+    color: var(--light);
     font-weight: bold;
     cursor: default;
   }

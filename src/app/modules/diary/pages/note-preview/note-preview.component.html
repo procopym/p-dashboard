@@ -1,1 +1,29 @@
-<p>note-preview works!</p>
+<div class="card-header">
+  <button
+    [routerLink]="['/diary', 'notes']"
+    class="btn btn-link move"
+  >
+    <i class="fas fa-arrow-left"></i>
+    Go back to notes
+  </button>
+  <button
+    [routerLink]="['/diary', 'note', '1', 'edit']"
+    class="btn btn-link move"
+  >
+    <i class="fas fa-arrow-right"></i>
+    Edit note
+  </button>
+</div>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut fugit, minus officia reiciendis repellendus rerum! Iste itaque laudantium optio recusandae!</p>
+
+<div class="card-footer">
+  <button
+    (click)="removeNote(1)"
+    class="btn btn-link remove"
+  >
+    <i class="fas fa-times"></i>
+    Remove
+  </button>
+</div>
+

@@ -12,4 +12,7 @@ export class NotePreviewComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  removeNote(id: number) {
+    console.log('Remove note:', id)
+  }
 }

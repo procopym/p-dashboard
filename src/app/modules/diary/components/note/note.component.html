@@ -1,1 +1,22 @@
-<p>note works!</p>
+<div class="card">
+  <div class="card-header">
+    <h2>{{note.title}}</h2>
+
+    <small>{{note.date | date:'dd.MM.yyyy'}}</small>
+  </div>
+
+  <div class="card-content">
+    {{note.text}}
+  </div>
+
+  <div class="card-footer">
+    <button
+      [routerLink]="['/diary', 'note', note.id]"
+      class="btn btn-link move"
+    >
+      Read more
+      <i class="fas fa-arrow-right"></i>
+    </button>
+  </div>
+
+</div>

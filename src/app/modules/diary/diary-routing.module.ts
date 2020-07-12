@@ -7,17 +7,22 @@ import {SignUpComponent} from "./pages/sign-up/sign-up.component";
 import {NotePreviewComponent} from "./pages/note-preview/note-preview.component";
 import {CreateNoteComponent} from "./pages/create-note/create-note.component";
 import {EditNoteComponent} from "./pages/edit-note/edit-note.component";
+import {AuthGuard} from "./services/auth.guard"
 
 
 const routes: Routes = [
   {
     path: '', component: DiaryComponent, children: [
-      {path: 'notes', component: DiaryHomeComponent},
-      {path: 'note/:id', component: NotePreviewComponent},
-      {path: 'new-note', component: CreateNoteComponent},
-      {path: 'note/:id/edit', component: EditNoteComponent},
+      {path: 'notes', component: DiaryHomeComponent, canActivate: [AuthGuard]},
+      {path: 'note/:id', component: NotePreviewComponent, canActivate: [AuthGuard]},
+      {
+        path: 'new-note',
+        component: CreateNoteComponent,
+        canActivate: [AuthGuard]
+      },
+      {path: 'note/:id/edit', component: EditNoteComponent, canActivate: [AuthGuard]},
       {path: 'login', component: LoginComponent},
-      {path: 'sing-up', component: SignUpComponent},
+      {path: 'sign-up', component: SignUpComponent},
       {path: '**', redirectTo: '/diary/notes'},
     ]
   },

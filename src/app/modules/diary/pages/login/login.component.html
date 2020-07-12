@@ -1,1 +1,55 @@
-<p>login works!</p>
+<form class="card" [formGroup]="form" (ngSubmit)="submit()">
+  <div class="card-header">
+    <h1>Enter your diary</h1>
+  </div>
+  <div class="card-content">
+    <div
+      class="form-control"
+      [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+    >
+      <label for="email">Email:</label>
+      <input id="email" type="email" formControlName="email"/>
+      <div
+        *ngIf="form.get('email').touched && form.get('email').invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('email').errors.required">
+          Enter email please
+        </small>
+        <small *ngIf="form.get('email').errors.email">
+          Not valid email
+        </small>
+      </div>
+    </div>
+
+
+    <div
+      class="form-control"
+      [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+    >
+      <label for="password">Password:</label>
+      <input id="password" type="password" formControlName="password"/>
+      <div
+        *ngIf="form.get('password').touched && form.get('password').invalid"
+        class="validation"
+      >
+        <small *ngIf="form.get('password').errors.required">
+          Enter password please
+        </small>
+        <small *ngIf="form.get('password').errors.minlength">
+          Should be
+          {{form.get('password').errors.minlength.requiredLength}}
+          characters. Now
+          {{form.get('password').errors.minlength.actualLength}}.
+        </small>
+      </div>
+    </div>
+  </div>
+
+  <div class="card-footer">
+    <button
+      class="btn btn-dark"
+      type="submit"
+      [disabled]="!form.valid || submitted">Submit</button>
+  </div>
+</form>
