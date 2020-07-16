@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+  personaldashboard:
+    container_name: personaldashboard
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ".:/usr/src/app"
+    ports:
+      - "4200:4200"
+      - "49153:49153"
+
+# docker-compose exec web ng g c xyz
+# docker-compose up -d
